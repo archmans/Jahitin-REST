@@ -1,7 +1,6 @@
 const manageModel = require('../models/manage')
 
 const readDataManageController = async (req, res) => {
-    console.log(req.body);
     try {
         const [data] = await manageModel.readData();
         res.json({
