@@ -7,10 +7,10 @@ const middlewareAuth = require('../middleware/authValidation');
 const router = express.Router();
 
 // READ - GET
-router.get('/', middlewareAuth, manageController.readDataManageController);
+router.get('/:idUser', middlewareAuth, manageController.readDataManageController);
 
 // CREATE - POST
-router.post('/', middlewareAuth, upload.single('image'), manageController.createDataManageController);
+router.post('/:idUser', middlewareAuth, upload.single('image'), manageController.createDataManageController);
 
 module.exports = router;
 

@@ -18,9 +18,9 @@ const login = async (body) => {
         if (!isPasswordValid) {
             return null;
         }
-
+        const idUser = user.id;
         const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        return token;
+        return { token, idUser };
     } finally {
         connection.release();
     }

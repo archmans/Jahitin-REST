@@ -1,11 +1,16 @@
 const manageModel = require('../models/manage')
 
 const readDataManageController = async (req, res) => {
+    const { idUser } = req.params;
     try {
-        const [data] = await manageModel.readData();
+        const [data] = await manageModel.readData(idUser);
+        console.log(data);
         res.json({
             message: 'GET all gallery success',
-            data: data
+            data: {
+                idUser: idUser,
+                data: data
+            }
         })
     } catch (error) {
         res.status(500).json({
@@ -16,6 +21,7 @@ const readDataManageController = async (req, res) => {
 }
 
 const createDataManageController = async (req, res) => {
+    const { idUser } = req.params;
     try {
         const imageName = req.body.imageName;
         const imagePath = req.file.filename;
@@ -23,6 +29,7 @@ const createDataManageController = async (req, res) => {
         await manageModel.createData({
             imageName: imageName,
             imageNameExt: imagePath,
+            idUser: idUser
         });
         res.status(201).json({
             message: 'CREATE new gallery success',

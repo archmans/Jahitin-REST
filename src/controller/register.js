@@ -2,7 +2,6 @@ const registerModels = require('../models/register')
 const bcrypt = require('bcrypt');
 
 const register = async (req, res) => {
-    console.log(req.body);
     const {body} = req;
     try {
         const salt = bcrypt.genSaltSync(10);
