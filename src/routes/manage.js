@@ -18,6 +18,9 @@ router.patch('/:idImage', middlewareAuth, upload.single('image'), manageControll
 // READ - GET - UPDATE
 router.get('/edit/:idImage', middlewareAuth, manageController.getUpdateDataManageController);
 
+// DELETE - DELETE
+router.delete('/:idImage', middlewareAuth, manageController.deleteDataManageController);
+
 module.exports = router;
 
 // // CREATE - POST

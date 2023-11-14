@@ -88,9 +88,27 @@ const getUpdateDataManageController = async (req, res) => {
     }
 }
 
+const deleteDataManageController = async (req, res) => {
+    const { idImage } = req.params;
+    try {
+        await manageModel.deleteData(idImage);
+        res.status(200).json({
+            message: 'DELETE gallery success',
+            data: {
+            },
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: 'Server error',
+            serverMessage: error,
+        })
+    }
+}
+
 module.exports = {
     readDataManageController,
     createDataManageController,
     updateDataManageController,
-    getUpdateDataManageController
+    getUpdateDataManageController,
+    deleteDataManageController
 }

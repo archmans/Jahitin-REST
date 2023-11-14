@@ -22,9 +22,15 @@ const updateData = ({imageName, imageNameExt, idImage}) => {
     return dbPool.execute(query);
 }
 
+const deleteData = (idImage) => {
+    const query = `DELETE FROM gallery WHERE imageID = ${idImage}`;
+    return dbPool.execute(query);
+}
+
 module.exports = {
     readData,
     createData,
     updateData,
-    getUpdateData
+    getUpdateData,
+    deleteData
 };
