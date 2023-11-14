@@ -11,7 +11,20 @@ const createData = ({imageName, imageNameExt, idUser}) => {
     return dbPool.execute(query);
 }
 
+const getUpdateData = (idImage) => {
+    const query = `SELECT * FROM gallery WHERE imageID = ${idImage}`;
+    return dbPool.execute(query);
+}
+
+const updateData = ({imageName, imageNameExt, idImage}) => {
+    const query = `UPDATE gallery SET imageName = '${imageName}', imageNameExt = '${imageNameExt}' WHERE imageID = ${idImage}`;
+    console.log(query);
+    return dbPool.execute(query);
+}
+
 module.exports = {
     readData,
-    createData
+    createData,
+    updateData,
+    getUpdateData
 };

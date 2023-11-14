@@ -18,7 +18,7 @@ const app = express();
 app.use(cors());
 app.use(middlewareLogRequest);
 app.use(express.json());
-app.use('/assets', express.static('public/images'));
+app.use(express.static('public/images'));
 app.use("/verify", verifyRoutes);
 app.use("/users", usersRoutes);
 app.use("/register", registerRoutes);

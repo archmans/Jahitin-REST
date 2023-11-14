@@ -12,6 +12,12 @@ router.get('/:idUser', middlewareAuth, manageController.readDataManageController
 // CREATE - POST
 router.post('/:idUser', middlewareAuth, upload.single('image'), manageController.createDataManageController);
 
+// UPDATE - PATCH
+router.patch('/:idImage', middlewareAuth, upload.single('image'), manageController.updateDataManageController);
+
+// READ - GET - UPDATE
+router.get('/edit/:idImage', middlewareAuth, manageController.getUpdateDataManageController);
+
 module.exports = router;
 
 // // CREATE - POST
