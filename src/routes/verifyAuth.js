@@ -6,7 +6,6 @@ const router = express.Router();
 const secretKey = process.env.JWT_SECRET;
 
 router.get('/', async (req, res) => {
-  console.log('req.headers', req.headers);
   const token = req.headers['authorization'];
 
   if (!token) {

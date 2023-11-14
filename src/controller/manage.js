@@ -4,7 +4,6 @@ const readDataManageController = async (req, res) => {
     const { idUser } = req.params;
     try {
         const [data] = await manageModel.readData(idUser);
-        console.log(data);
         res.json({
             message: 'GET all gallery success',
             data: {
@@ -72,7 +71,6 @@ const getUpdateDataManageController = async (req, res) => {
     const { idImage } = req.params;
     try {
         const [data] = await manageModel.getUpdateData(idImage);
-        console.log(data);
         res.json({
             message: 'GET all update gallery success',
             data: {

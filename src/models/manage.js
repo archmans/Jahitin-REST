@@ -7,7 +7,6 @@ const readData = (idUser) => {
 
 const createData = ({imageName, imageNameExt, idUser}) => {
     const query = `INSERT INTO gallery (imageName, imageNameExt, idUser) VALUES ('${imageName}', '${imageNameExt}', ${idUser})`;
-    console.log(query);
     return dbPool.execute(query);
 }
 
@@ -18,7 +17,6 @@ const getUpdateData = (idImage) => {
 
 const updateData = ({imageName, imageNameExt, idImage}) => {
     const query = `UPDATE gallery SET imageName = '${imageName}', imageNameExt = '${imageNameExt}' WHERE imageID = ${idImage}`;
-    console.log(query);
     return dbPool.execute(query);
 }
 

@@ -15,8 +15,6 @@ const loginController = async (req, res) => {
             token,
             idUser
         });
-        console.log("ini token contr", token);
-        console.log("ini idUser contr", idUser);
     } catch (error) {
         console.error('Error during user login:', error);
         res.status(500).json({
