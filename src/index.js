@@ -9,6 +9,7 @@ const loginRoutes = require('./routes/login');
 const manageRoutes = require('./routes/manage');
 const verifyRoutes = require('./routes/verifyAuth');
 const logoutRoutes = require('./routes/logout');
+const subscriptionRoutes = require('./routes/subscription');
 
 const middlewareLogRequest = require('./middleware/logs');
 const middlewareAuth = require('./middleware/authValidation');
@@ -25,6 +26,7 @@ app.use("/register", registerRoutes);
 app.use("/login", loginRoutes);
 app.use("/manage", middlewareAuth, manageRoutes);
 app.use("/logout", middlewareAuth, logoutRoutes);
+app.use("/subscription", subscriptionRoutes);
 
 app.post("/upload", upload.single('photo'), (req, res) => {
     res.json({
